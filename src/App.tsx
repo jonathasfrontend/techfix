@@ -2,9 +2,9 @@ import bg from '../public/bitmap.png'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { Plus } from '@phosphor-icons/react';
-import { PedidoBanners } from './components/PedidoBanners';
+import { OrderBanners } from './components/OrderBanners';
 
-interface Pedido{
+interface Order{
   id: string,
   name: string,
   address: string,
@@ -20,11 +20,11 @@ interface Pedido{
 
 function App() {
 
-  const [pedidos, setPedido] = useState<Pedido[]>([]);
+  const [orders, setOrder] = useState<Order[]>([]);
 
   useEffect(()=>{
     axios('https://servertechfixfr.vercel.app/content/v1/orders').then(response => {
-      setPedido(response.data.order);
+      setOrder(response.data);
       // console.log(response.data.order)
     })
   }, [])
@@ -42,19 +42,19 @@ function App() {
       </header>
 
       <div className="px-5 w-full">
-      {pedidos.map(pedido => {
+      {orders.map(order => {
           return (
-            <PedidoBanners
-              key={pedido.id}
-              name={pedido.name}
-              address={pedido.address}
-              number={pedido.number}
-              cpf={pedido.cpf}
-              email={pedido.email}
-              devicedescription={pedido.devicedescription}
-              defectdescription={pedido.defectdescription}
-              status={pedido.status}
-              createdAt={pedido.createdAt}
+            <OrderBanners
+              key={order.id}
+              name={order.name}
+              address={order.address}
+              number={order.number}
+              cpf={order.cpf}
+              email={order.email}
+              devicedescription={order.devicedescription}
+              defectdescription={order.defectdescription}
+              status={order.status}
+              createdAt={order.createdAt}
             />
           )
         })}

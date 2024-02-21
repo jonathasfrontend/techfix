@@ -1,5 +1,5 @@
 import { At, CalendarBlank, CheckCircle, FileText, MapPin, Phone, SquaresFour, UserCircle } from "@phosphor-icons/react"
-interface PedidoBannerProps{
+interface OrderBannerProps{
     name: string,
     address: string,
     number: string,
@@ -12,7 +12,7 @@ interface PedidoBannerProps{
     createdAt: string,
   }
 
-export function PedidoBanners(props: PedidoBannerProps){
+export function OrderBanners(props: OrderBannerProps){
     return(
         <div className="w-full h-full rounded-md border-solid border-2 text-white border-green-500 bg-[#121214] px-5 py-2 overflow-hidden">
         <h1 className='flex items-center text-2xl font-semibold'><UserCircle size={25} className='mr-1' />{props.name}</h1>
