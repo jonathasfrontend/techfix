@@ -1,6 +1,5 @@
-import { At, CalendarBlank, CheckCircle, FileText, MapPin, Phone, Plus, SquaresFour, UserCircle, WarningOctagon, Wrench } from "@phosphor-icons/react"
+import { At, CalendarBlank, CheckCircle, FileText, MapPin, Phone, SquaresFour, UserCircle } from "@phosphor-icons/react"
 interface PedidoBannerProps{
-    id: string,
     name: string,
     address: string,
     number: string,
@@ -8,7 +7,7 @@ interface PedidoBannerProps{
     email: string,
     devicedescription: string,
     defectdescription: string,
-    category: string,
+    category?: string,
     status: string,
     createdAt: string,
   }

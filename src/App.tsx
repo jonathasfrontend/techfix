@@ -2,7 +2,7 @@ import bg from '../public/bitmap.png'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { Plus } from '@phosphor-icons/react';
-// import { PedidoBanners } from './components/pedidoBanners';
+import { PedidoBanners } from './components/PedidoBanners';
 
 interface Pedido{
   id: string,
@@ -24,8 +24,8 @@ function App() {
 
   useEffect(()=>{
     axios('https://servertechfixfr.vercel.app/content/v1/orders').then(response => {
-      // setPedido(response.data);
-      console.log(response.data.order)
+      setPedido(response.data.order);
+      // console.log(response.data.order)
     })
   }, [])
 
@@ -41,7 +41,7 @@ function App() {
         </button>
       </header>
 
-      {/* <div className="px-5 w-full">
+      <div className="px-5 w-full">
       {pedidos.map(pedido => {
           return (
             <PedidoBanners
@@ -58,7 +58,7 @@ function App() {
             />
           )
         })}
-      </div> */}
+      </div>
     </div>
   )
 }
