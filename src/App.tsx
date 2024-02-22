@@ -1,4 +1,3 @@
-import bg from '../public/bitmap.png'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { Plus } from '@phosphor-icons/react';
