@@ -24,13 +24,12 @@ function App() {
 
   useEffect(()=>{
     axios('https://servertechfixfr.vercel.app/content/v1/orders').then(response => {
-      setOrder(response.data);
-      // console.log(response.data.order)
+      setOrder(response.data.order);
     })
   }, [])
 
    return (
-    <div style={{backgroundImage: `url(${bg})`, backgroundSize: 'cover', backgroundPosition: 'center'}} className="w-full h-screen">
+    <div className="w-full h-screen">
       <header className="w-full flex items-center justify-between p-5">
         <div>
           <h1 className="text-2xl text-white font-extrabold">TECH FIX</h1>
@@ -54,6 +53,7 @@ function App() {
               devicedescription={order.devicedescription}
               defectdescription={order.defectdescription}
               status={order.status}
+              category={order.category}
               createdAt={order.createdAt}
             />
           )
