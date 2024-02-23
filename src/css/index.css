@@ -8,3 +8,11 @@ body{
     background-size: cover;
     background-attachment: fixed;
 }
+
+::-webkit-scrollbar{
+    width: 5px;
+}
+::-webkit-scrollbar-thumb{
+    background: #121214;
+    border-radius: 20px;
+}
