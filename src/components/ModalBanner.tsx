@@ -10,31 +10,35 @@ interface OrderBannerProps{
     id: string,
     category: string,
     status: string,
-  }
+}
+
 
 export function ModalBanner() {
-  const [category, setCategory] = useState<OrderBannerProps[]>([]);
-  const [status, setStatus] = useState<OrderBannerProps[]>([]);
-
   const [name, setName] = useState('')
   const [address, setAddress] = useState('')
   const [number, setNumber] = useState('')
   const [email, setEmail] = useState('')
   const [devicedescription, setDevicedescription] = useState('')
   const [defectdescription, setDefectdescription] = useState('')
-  // const [category, setcategory] = useState('')
-  // const [status, setstatus] = useState('')
+  const [category, setCategory] = useState<OrderBannerProps[]>([]);
+  const [status, setStatus] = useState<OrderBannerProps[]>([]);
 
   useEffect(()=>{
-    axios(import.meta.env.VITE_URL_GET_CATEGORY).then(response => {
-      setCategory(response.data.category);
-    })
+    async function getCategory(){
+      const response = await api.get('/category')
+      const reversedOrders = response.data.category
+      setCategory(reversedOrders);
+    }
+    getCategory()
   }, [])
 
   useEffect(()=>{
-    axios(import.meta.env.VITE_URL_GET_STATUS).then(response => {
-      setStatus(response.data.status);
-    })
+    async function getStatus(){
+      const response = await api.get('/status')
+      const reversedOrders = response.data.status;
+      setStatus(reversedOrders);
+    }
+    getStatus()
   }, [])
 
   async function handleCreateAd(event: FormEvent){
@@ -45,9 +49,6 @@ export function ModalBanner() {
     if(!data.name){
         return;
     }
-
-    const categoryString = JSON.stringify(category)
-    const statusString = JSON.stringify(status)
 
     const response = await api.post('/neworders', {
       name,
