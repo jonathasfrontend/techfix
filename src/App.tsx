@@ -24,11 +24,12 @@ function App() {
   const [orders, setOrder] = useState<Order[]>([]);
 
   useEffect(()=>{
-    axios('https://servertechfixfr.vercel.app/content/v1/orders').then(response => {
-      setOrder(response.data.order);
+    axios(import.meta.env.VITE_URL_GET_ODERS).then(response => {
+      const reversedOrders = response.data.order.reverse();
+      setOrder(reversedOrders);
     })
   }, [])
-
+  
    return (
     <div className="w-full h-screen">
       <header className="w-full flex items-center justify-between p-5 fixed top-0 left-0">
@@ -42,7 +43,7 @@ function App() {
       </header>
 
       <div className="px-5 w-full h-full mt-20 overflow-hidden fixed top-0 left-0">
-        <div className="w-full overflow-auto" style={{ maxHeight: "calc(100vh - 7rem)" }}>
+        <div className="contentCard relative w-full overflow-auto grid-cols-3 grid gap-2" style={{ maxHeight: "calc(100vh - 7rem)" }}>
           {orders.map(order => {
             return (
               <OrderBanners

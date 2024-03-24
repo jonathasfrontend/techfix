@@ -36,11 +36,10 @@ export function OrderBanners(props: OrderBannerProps) {
   }, [props.status]);
 
   return (
-    <div className={`w-full h-full rounded-md border-solid border-2 text-white bg-[#121214a3] ${statusColor} px-5 py-2 mb-3 overflow-hidden`}>
+    <div className={`w-full h-full rounded-md border-solid border-[1px] text-white bg-[#121214a3] ${statusColor} px-5 py-2 mb-3 overflow-hidden`}>
       <h1 className='flex items-center text-2xl font-semibold'><UserCircle size={25} className='mr-1' />{props.name}</h1>
       <div className='w-full flex flex-col justify-between mt-2'>
         <a href={`https://api.whatsapp.com/send?phone=${props.number}`} className='flex items-center'><Phone size={20} className='mr-1' />{props.number}</a>
-        <h1 className='flex items-center'><FileText size={20} className='mr-1' />{props.cpf}</h1>
         <h1 className='flex items-center'><At size={20} className='mr-1' />{props.email}</h1>
         <span className='flex items-center'><MapPin size={20} className='mr-1' />{props.address}</span>
       </div>
@@ -60,8 +59,8 @@ export function OrderBanners(props: OrderBannerProps) {
       </div>
       <div className='w-full mt-2 flex items-center justify-between'>
         <div className='flex items-center gap-5'>
-          <h1 className='flex items-center'><Tag size={20} className='mr-1' />{props.category}</h1>
-          <h1 className='flex items-center'><CalendarBlank size={20} className='mr-1' />{props.createdAt}</h1>
+          <h1 className='flex items-center text-xs'><Tag size={20} className='mr-1' />{props.category}</h1>
+          <h1 className='flex items-center text-xs'><CalendarBlank size={20} className='mr-1' />{props.createdAt}</h1>
         </div>
         <h1 className={`flex items-center px-5 h-10 rounded-md font-semiBold ${statusColor} ${statusBgColor}`}>{statusText}</h1>
       </div>
