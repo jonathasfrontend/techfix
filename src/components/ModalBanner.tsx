@@ -3,13 +3,12 @@ import * as Dialog from '@radix-ui/react-dialog';
 import { Input } from './Form/Input';
 import { Textarea } from './Form/Textarea';
 import { FormEvent, useEffect, useState } from 'react';
-import axios from 'axios';
 import api from '../services/axios';
 
 interface OrderBannerProps{
-    id: string,
-    category: string,
-    status: string,
+  id: string,
+  category: string,
+  status: string,
 }
 
 
