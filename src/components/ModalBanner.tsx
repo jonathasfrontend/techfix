@@ -49,7 +49,7 @@ export function ModalBanner() {
         return;
     }
 
-    const response = await api.post('/neworders', {
+    await api.post('/neworders', {
       name,
       address,
       number,

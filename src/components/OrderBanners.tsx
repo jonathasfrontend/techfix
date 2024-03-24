@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { At, CalendarBlank, CheckCircle, FileText, MapPin, Phone, Tag, UserCircle, Wrench, WarningCircle } from "@phosphor-icons/react";
+import { At, CalendarBlank, CheckCircle, MapPin, Phone, Tag, UserCircle, Wrench, WarningCircle } from "@phosphor-icons/react";
 
 interface OrderBannerProps {
   name: string;
