@@ -49,11 +49,11 @@ function App() {
         <div className='w-full mb-3 flex gap-2'>
           <button className='px-2 py-1 rounded-md text-sm font-medium bg-white'>Tudo</button>
           <button className='px-2 py-1 rounded-md text-sm font-medium bg-green-500'>Aberto</button>
-          <button className='px-2 py-1 rounded-md text-sm font-medium bg-sky-600'>Manutenção</button>
+          <button className='px-2 py-1 rounded-md text-sm font-medium bg-sky-600'>Andamento</button>
           <button className='px-2 py-1 rounded-md text-sm font-medium bg-red-600'>Fechado</button>
         </div>
 
-        <div className="contentCard relative w-full overflow-auto grid-cols-3 grid gap-2" style={{ maxHeight: "calc(100vh - 6rem)" }}>
+        <div className="contentCard relative w-full overflow-auto grid-cols-4 grid gap-2" style={{ maxHeight: "calc(100vh - 6rem)" }}>
           {orders.map(order => {
             return (
               <OrderBanners
